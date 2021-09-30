@@ -1,0 +1,18 @@
+{
+    "id": 159,
+    "name": "stevie",
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "photoUrls": [
+        "http://pet.photo.com/super_pet"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "super dog"
+        }
+    ],
+    "status": "available"
+}
