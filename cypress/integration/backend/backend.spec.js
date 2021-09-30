@@ -7,7 +7,7 @@ describe('Backend tests', () => {
         cy.wait(2500);
     });
     it('Obtain all available animals', () => {
-        cy.request('https://petstore3.swagger.io/api/v3/pet/findByStatus?status=available')
+        cy.request(`${Cypress.env('apiBaseUrl')}/findByStatus?status=available`)
             .then((response) => {
                 expect(response.status).to.eq(200);
             })
@@ -21,7 +21,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) =>
             cy.request({
                 method: 'POST',
-                url: 'https://petstore3.swagger.io/api/v3/pet',
+                url: `${Cypress.env('apiBaseUrl')}`,
                 headers: {
                     "accept": "application/json",
                     "Content-Type": "application/json"
@@ -45,7 +45,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
                 body: 'GET',
-                url: `https://petstore3.swagger.io/api/v3/pet/${data.id}`
+                url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body.id).to.eq(data.id);
@@ -64,7 +64,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
                 method: 'POST',
-                url: 'https://petstore3.swagger.io/api/v3/pet',
+                url: `${Cypress.env('apiBaseUrl')}`,
                 headers: {
                     "accept": "application/json",
                     "Content-Type": "application/json"
@@ -85,7 +85,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
                 body: 'GET',
-                url: `https://petstore3.swagger.io/api/v3/pet/${data.id}`
+                url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
                 expect(response.body.id).to.eq(data.id);
@@ -103,7 +103,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
                 body: 'DELETE',
-                url: `https://petstore3.swagger.io/api/v3/pet/${data.id}`
+                url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
             });
@@ -114,7 +114,7 @@ describe('Backend tests', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
                 body: 'GET',
-                url: `https://petstore3.swagger.io/api/v3/pet/${data.id}`
+                url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(400);
             });

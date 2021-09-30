@@ -5,8 +5,7 @@ describe('Creating account flow', () => {
     let password = 'Password12#';
     it('Create account', () => {
         cy.fixture('johnRambo').then((data) => {
-            cy.visit('http://automationpractice.com/index.php')
-                .get('.login').click();
+            cy.visit('/').get('.login').click();
             cy.get('#email_create').type(email);
             cy.get("#SubmitCreate").click();
             cy.get('#customer_firstname').type(data.firstName);
@@ -27,7 +26,7 @@ describe('Creating account flow', () => {
     });
     it('Sign in to created account', () => {
         cy.fixture('johnRambo').then((data) => {
-            cy.visit('http://automationpractice.com/index.php').get('.login').click();
+            cy.visit('/').get('.login').click();
             cy.get('#email').type(email);
             cy.get('#passwd').type(password);
             cy.get('#SubmitLogin > span').click();
