@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Creating account flow', () => {
-    let email = `johnrambo${Math.floor(Math.random() * 10)}@mail.com`;
+    let email = `JohnRambo${Math.floor(Math.random()*10000)}@mail.com`;
     let password = 'Password12#';
     it('Create account', () => {
         cy.fixture('johnRambo').then((data) => {
