@@ -116,7 +116,7 @@ describe('Backend tests', () => {
                 body: 'GET',
                 url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
-                expect(response.status).to.eq(400);
+                expect(response.status).to.eq(404);
             });
         })
     });
