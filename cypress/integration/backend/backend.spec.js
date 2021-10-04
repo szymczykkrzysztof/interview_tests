@@ -44,7 +44,7 @@ describe('Backend tests', () => {
         cy.wait(500);//slow response from api endpoint
         cy.fixture('stevie').then((data) => {
             cy.request({
-                body: 'GET',
+                method: 'GET',
                 url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
@@ -84,7 +84,7 @@ describe('Backend tests', () => {
     it('Check if dog status was changed to sold', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
-                body: 'GET',
+                method: 'GET',
                 url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
@@ -102,7 +102,7 @@ describe('Backend tests', () => {
     it('Delete dog', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
-                body: 'DELETE',
+                method: 'DELETE',
                 url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(200);
@@ -113,7 +113,7 @@ describe('Backend tests', () => {
     it('Confirm dog is deleted', () => {
         cy.fixture('stevie').then((data) => {
             cy.request({
-                body: 'GET',
+                method: 'GET',
                 url: `${Cypress.env('apiBaseUrl')}/${data.id}`
             }).then((response) => {
                 expect(response.status).to.eq(404);
